@@ -7,8 +7,8 @@ const Navbar = () => {
   };
   return (
     <nav className='flex justify-between items-center h-20 px-4 absolute top-0 left-0 z-10 w-full text-white bg-transparent'>
-      <h1>Frim-Tours&Travel.</h1>
-      <ul className='hidden md:flex'>
+    <h1 className='pl-2'>Frim-Tours&Travel</h1>
+        <ul className='hidden md:flex'>
         <li>
           <a href=''>Home</a>
         </li>
@@ -16,7 +16,7 @@ const Navbar = () => {
           <a href=''>Destinations</a>
         </li>
         <li>
-          <a href=''>Travel</a>
+          <a href=''>Travel Packages</a>
         </li>
         <li>
           <a href=''>Contact Us</a>
@@ -24,7 +24,7 @@ const Navbar = () => {
        
       </ul>
       <div className='hidden md:flex'>
-        <svg
+        {/* <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
           viewBox='0 0 24 24'
@@ -36,8 +36,8 @@ const Navbar = () => {
             strokeLinecap='round'
             strokeLinejoin='round'
             d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'
-          />
-        </svg>
+          /> */}
+        {/* </svg> */}
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -73,7 +73,7 @@ const Navbar = () => {
       {navIsShown && (
         <div className='md:hidden absolute z-10 top-0 left-0 w-full bg-gray-100/90 text-black px-4 py-6'>
           <div className='flex justify-between'>
-            <h1>Frim-Tours&Travel.</h1>
+            <h1 className='pl-2'>Frim-Tours&Travel</h1>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
@@ -98,7 +98,7 @@ const Navbar = () => {
               <a href=''>Destinations</a>
             </li>
             <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Travel</a>
+              <a href=''>Travel Packages</a>
             </li>
             <li className='border-b-2 border-b-gray-600'>
               <a href=''>About Us</a>
@@ -107,7 +107,7 @@ const Navbar = () => {
               <a href=''>Contact Us</a>
             </li>
           </ul>
-          <button className='w-full mb-4 btn'>Search</button>
+          {/* <button className='w-full mb-4 btn'>Search</button> */}
           <button className='w-full mb-4 btn'>Account</button>
         </div>
       )}

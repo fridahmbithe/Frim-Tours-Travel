@@ -14,16 +14,16 @@ const Hero = () => {
       />
       <div className='absolute top-0 left-0 w-full h-full bg-gray-900/30'></div>
       <div className='absolute top-0 left-0 w-full h-full flex flex-col justify-center text-center'>
-        <h1 className='text-white mb-2'>First Class Travel</h1>
-        <h2 className='text-white mb-4'>Top 1% Locations Worldwide</h2>
+        <h1 className='text-gray-200 mb-2'> <u className='text-teal-300'>Where to?</u> - Travelers' Choices</h1>
+        <h1 className='text-gray-200 mb-4'> Best of the Best</h1>
         <form
           action=''
           className='flex border p-1 rounded-md text-black bg-gray-100/90 max-w-[700px] w-[80%] mx-auto'
         >
           <input
             type='text'
-            placeholder='Search Destinations'
-            className='grow bg-transparent outline-none'
+            placeholder='Places to go, things to do'
+            className='grow bg-transparent outline-none '
           />
           <button className='w-11 btn--form'>
             <svg
