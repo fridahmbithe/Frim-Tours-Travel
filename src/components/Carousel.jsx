@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const CAROUSEL_DATA = [
   {
@@ -17,21 +17,26 @@ const CAROUSEL_DATA = [
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  
   const incrementIndex = () => {
-    console.log(currentIndex);
-    setCurrentIndex((currentIndex) => {
-      return (currentIndex + 1) % CAROUSEL_DATA.length;
-    });
+    setCurrentIndex((currentIndex) => (currentIndex + 1) % CAROUSEL_DATA.length);
   };
+
   const decrementIndex = () => {
-    console.log(currentIndex);
-    setCurrentIndex((currentIndex) => {
-      return currentIndex === 0 ? CAROUSEL_DATA.length - 1 : currentIndex - 1;
-    });
+    setCurrentIndex((currentIndex) => 
+      currentIndex === 0 ? CAROUSEL_DATA.length - 1 : currentIndex - 1
+    );
   };
+
+  useEffect(() => {
+    const intervalId = setInterval(incrementIndex, 10000); // 45 seconds
+
+    return () => clearInterval(intervalId); // Cleanup on unmount
+  }, []);
+
   return (
     <section className='container px-4 my-12 h-3/4 relative'>
-      <img src={CAROUSEL_DATA[currentIndex].url} className='rounded-md' />
+      <img src={CAROUSEL_DATA[currentIndex].url} className='rounded-md' alt="carousel" />
       <div
         onClick={decrementIndex}
         className='absolute left-8 top-1/2 -translate-y-1/2 bg-white rounded p-1 cursor-pointer'
@@ -74,5 +79,4 @@ const Carousel = () => {
     </section>
   );
 };
-
 export default Carousel;

@@ -26,9 +26,7 @@ const Search = () => {
           <button className='p-1 border bg-transparent text-black rounded-full'>Booking Now</button>
 
           </div>
-          <p className='text-center text-xs my-1'>Embark on an unforgettable journey through Africa!  Discover the captivating allure  of its stunning <br/>
-            beaches 
-            and immerse yourself in vibrant cultures. Experience the magic of Africa like never before!</p>
+          
             <div>
             <button className='p-1 border bg-black text-white rounded-full'>Explore more</button>
 

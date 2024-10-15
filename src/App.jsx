@@ -13,8 +13,8 @@ const App = () => {
     <>
       <Navbar />
       <Hero />
-      <Search />
-      <Destinations />
+      {/* <Search /> */}
+      {/* <Destinations /> */}
       <Selections />
       <Carousel />
       <Footer />

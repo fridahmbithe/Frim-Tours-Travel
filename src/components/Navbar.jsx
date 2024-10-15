@@ -1,43 +1,35 @@
 import React, { useState } from 'react';
 
 const Navbar = () => {
-  const [navIsShown, setnavIsShown] = useState(false);
+  const [navIsShown, setNavIsShown] = useState(false);
+  const [activeLink, setActiveLink] = useState('Home');
+
   const toggleNavIsShown = () => {
-    setnavIsShown((navIsShown) => !navIsShown);
+    setNavIsShown((prev) => !prev);
   };
+
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+    setNavIsShown(false); // Close the mobile nav on link click
+  };
+
   return (
-    <nav className='flex justify-between items-center h-20 px-4 absolute top-0 left-0 z-10 w-full text-white bg-transparent'>
-    <h1 className='pl-2'>Frim-Tours&Travel</h1>
-        <ul className='hidden md:flex'>
-        <li>
-          <a href=''>Home</a>
-        </li>
-        <li>
-          <a href=''>Destinations</a>
-        </li>
-        <li>
-          <a href=''>Travel Packages</a>
-        </li>
-        <li>
-          <a href=''>Contact Us</a>
-        </li>
-       
+    <nav className='flex justify-between items-center h-20 sticky top-0 left-0 z-10 w-full text-black bg-white shadow-md'>
+      <h1 className='pl-2 text-xl font-bold'>Frim-Tours & Travel</h1>
+      <ul className='hidden md:flex space-x-4'>
+        {['Home', 'Destinations', 'Travel Packages', 'Contact Us'].map((link) => (
+          <li key={link}>
+            <a
+              href='#'
+              className={`hover:text-blue-500 ${activeLink === link ? 'font-bold' : ''}`}
+              onClick={() => handleLinkClick(link)}
+            >
+              {link}
+            </a>
+          </li>
+        ))}
       </ul>
       <div className='hidden md:flex'>
-        {/* <svg
-          xmlns='http://www.w3.org/2000/svg'
-          fill='none'
-          viewBox='0 0 24 24'
-          strokeWidth={1.5}
-          stroke='currentColor'
-          className='w-6 h-6 mr-2'
-        >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            d='M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z'
-          /> */}
-        {/* </svg> */}
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -60,7 +52,7 @@ const Navbar = () => {
           viewBox='0 0 24 24'
           strokeWidth={1.5}
           stroke='currentColor'
-          className='w-6 h-6 md:hidden'
+          className='w-6 h-6 md:hidden cursor-pointer'
           onClick={toggleNavIsShown}
         >
           <path
@@ -73,14 +65,14 @@ const Navbar = () => {
       {navIsShown && (
         <div className='md:hidden absolute z-10 top-0 left-0 w-full bg-gray-100/90 text-black px-4 py-6'>
           <div className='flex justify-between'>
-            <h1 className='pl-2'>Frim-Tours&Travel</h1>
+            <h1 className='pl-2 text-xl font-bold'>Frim-Tours & Travel</h1>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               fill='none'
               viewBox='0 0 24 24'
               strokeWidth={1.5}
               stroke='currentColor'
-              className='w-6 h-6'
+              className='w-6 h-6 cursor-pointer'
               onClick={toggleNavIsShown}
             >
               <path
@@ -90,24 +82,19 @@ const Navbar = () => {
               />
             </svg>
           </div>
-          <ul className=' mb-4'>
-            <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Home</a>
-            </li>
-            <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Destinations</a>
-            </li>
-            <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Travel Packages</a>
-            </li>
-            <li className='border-b-2 border-b-gray-600'>
-              <a href=''>About Us</a>
-            </li>
-            <li className='border-b-2 border-b-gray-600'>
-              <a href=''>Contact Us</a>
-            </li>
+          <ul className='mb-4 space-y-2'>
+            {['Home', 'Destinations', 'Travel Packages', 'About Us', 'Contact Us'].map((link) => (
+              <li key={link}>
+                <a
+                  href='#'
+                  className={`block p-2 hover:bg-gray-200 rounded ${activeLink === link ? 'font-bold' : ''}`}
+                  onClick={() => handleLinkClick(link)}
+                >
+                  {link}
+                </a>
+              </li>
+            ))}
           </ul>
-          {/* <button className='w-full mb-4 btn'>Search</button> */}
           <button className='w-full mb-4 btn'>Account</button>
         </div>
       )}
