@@ -7,6 +7,7 @@ import Search from './components/Search';
 import Selections from './components/Selections';
 import Carousel from './components/Carousel';
 import Footer from './components/Footer';
+import ContactUs from './components/Contact';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       {/* <Search /> */}
       {/* <Destinations /> */}
       <Selections />
+      <ContactUs/>
       <Carousel />
       <Footer />
     </>

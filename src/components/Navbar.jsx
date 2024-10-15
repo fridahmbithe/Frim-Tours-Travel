@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import contact from './Contact';
 
 const Navbar = () => {
   const [navIsShown, setNavIsShown] = useState(false);
@@ -8,8 +9,15 @@ const Navbar = () => {
     setNavIsShown((prev) => !prev);
   };
 
+  const navLinks = [
+    { name: 'Home', url: '#' },
+    { name: 'Destinations', url: '#i' },
+    { name: 'Travel Packages', url: '#l' },
+    { name: 'Contact Us', url: '#contact' },
+  ];
+
   const handleLinkClick = (link) => {
-    setActiveLink(link);
+    setActiveLink(link.name);
     setNavIsShown(false); // Close the mobile nav on link click
   };
 
@@ -17,14 +25,14 @@ const Navbar = () => {
     <nav className='flex justify-between items-center h-20 sticky top-0 left-0 z-10 w-full text-black bg-white shadow-md'>
       <h1 className='pl-2 text-xl font-bold'>Frim-Tours & Travel</h1>
       <ul className='hidden md:flex space-x-4'>
-        {['Home', 'Destinations', 'Travel Packages', 'Contact Us'].map((link) => (
-          <li key={link}>
+        {navLinks.map((link) => (
+          <li key={link.name}>
             <a
-              href='#'
-              className={`hover:text-blue-500 ${activeLink === link ? 'font-bold' : ''}`}
+              href={link.url}
+              className={`hover:text-blue-500 ${activeLink === link.name ? 'font-bold' : ''}`}
               onClick={() => handleLinkClick(link)}
             >
-              {link}
+              {link.name}
             </a>
           </li>
         ))}
@@ -83,14 +91,14 @@ const Navbar = () => {
             </svg>
           </div>
           <ul className='mb-4 space-y-2'>
-            {['Home', 'Destinations', 'Travel Packages', 'About Us', 'Contact Us'].map((link) => (
-              <li key={link}>
+            {navLinks.map((link) => (
+              <li key={link.name}>
                 <a
-                  href='#'
-                  className={`block p-2 hover:bg-gray-200 rounded ${activeLink === link ? 'font-bold' : ''}`}
+                  href={link.url}
+                  className={`block p-2 hover:bg-gray-200 rounded ${activeLink === link.name ? 'font-bold' : ''}`}
                   onClick={() => handleLinkClick(link)}
                 >
-                  {link}
+                  {link.name}
                 </a>
               </li>
             ))}
